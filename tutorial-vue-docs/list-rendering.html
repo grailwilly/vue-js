@@ -17,6 +17,7 @@
     <ul> Learn:
       <li v-for="todo in todos" :key=""todo.id>
         {{ todo.text }}
+        <button @click="removeTodo(todo)">X</button>
       </li>
     </ul>
   </div>
@@ -38,8 +39,11 @@
       },
       methods: {
         addTodo() {
-          this.todos = this.push({id: id++, text: this.newTodo})
+          this.todos.push({id: id++, text: this.newTodo})
           this.newTodo = ''
+        },
+        removeTodo(todo) {
+          this.todos = this.todos.filter((item) => item !== todo)
         }
       }
     })
