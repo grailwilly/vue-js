@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Vue - List Rendering</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="list_rendering">
+    <ul> Learn:
+      <li v-for="todo in todos" :key=""todo.id>
+        {{ todo.text }}
+      </li>
+    </ul>
+  </div>
+  
+  <script>
+    let id = 0
+
+    new Vue({
+      el: "#list_rendering",
+      data() {
+        return {
+          newTodo: '',
+          todos: [
+            {id: id++, text: "HTML"},
+            {id: id++, text: "JavaScript"},
+            {id: id++, text: "Vue"}
+          ]
+        }
+      },
+      methods: {
+        addTodo() {
+          this.newTodo = ''
+        }
+      }
+    })
+    </script>
+
+  
+</body>
+</html>
