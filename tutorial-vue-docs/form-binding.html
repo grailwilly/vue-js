@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Vue - Form Binding</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="form_binding">
+    <!-- <input :value="text" @input="onInput" placeholder="type here"> -->
+    <input v-model="text" placeholder="type here">
+    <p>{{ text }}</p>
+  </div>
+  
+  <script>
+    new Vue({
+      el: "#form_binding",
+      data() {
+        return {
+          text: ''
+        }
+      },
+      methods: {
+        onInput(e) {
+          this.text = e.target.value
+        }
+      }
+    })
+    </script>
+
+  
+</body>
+</html>
