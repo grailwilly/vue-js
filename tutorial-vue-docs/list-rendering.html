@@ -10,6 +10,10 @@
 <body>
 
   <div id="list_rendering">
+    <form @submit.prevent="addTodo">
+      <input v-model="newTodo">
+      <button>Add to do</button>
+    </form>
     <ul> Learn:
       <li v-for="todo in todos" :key=""todo.id>
         {{ todo.text }}
@@ -34,6 +38,7 @@
       },
       methods: {
         addTodo() {
+          this.todos = this.push({id: id++, text: this.newTodo})
           this.newTodo = ''
         }
       }
