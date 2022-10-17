@@ -26,6 +26,9 @@
         <button @click="removeTodo(todo)">X</button>
       </li>
     </ul>
+    <button @click="hideCompleted = !hideCompleted">
+      {{ hideCompleted ? 'Show all' : 'Hide Completed'}}
+    </button>
   </div>
   
   <script>
@@ -35,12 +38,20 @@
       el: "#computed_property",
       data() {
         return {
+          hideCompleted: false,
           newTodo: '',
           todos: [
             {id: id++, text: "HTML", done: true},
             {id: id++, text: "JavaScript", done: true},
             {id: id++, text: "Vue", done: false}
           ]
+        }
+      },
+      computed: {
+        filteredTodos() {
+          return this.hideCompleted 
+          ? this.todos.filter((item) => !item.done)
+          : this.todos
         }
       },
       methods: {
