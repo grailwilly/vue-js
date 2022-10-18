@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Vue - Lifecycle and template refs</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="lifecycle_and_template_refs">
+    <p ref="p">Hello</p>
+  </div>
+  
+  <script>
+    new Vue({
+      el: "#lifecycle_and_template_refs",
+      mounted() {
+        this.$refs.p.textContent = 'mounted!'
+      }
+    })
+  </script>
+
+  <!-- <script>
+    export default {
+      mounted() {
+        this.$refs.p.textContent = 'mounted!'
+      }
+    }
+  </script> -->
+
+  
+</body>
+</html>
